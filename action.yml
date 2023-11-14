@@ -1,5 +1,5 @@
 name: "Jenkins-Build-Action"
-description: "Start Jenkins jobs with GitHub actions and parameters. It checks for queued jobs, started jobs and status of the jobs. It also reports back the job status"
+description: "Start Jenkins jobs and notify status of the job"
 author: "Amit Sadafule"
 inputs:
   JENKINS_URL:
