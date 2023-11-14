@@ -1,0 +1,9 @@
+# Intellij
+.idea
+
+# Docker
+/docker/**/.env
+docker-compose.yml
+
+*.DS_Store
+*.iml

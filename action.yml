@@ -1,0 +1,26 @@
+name: "Jenkins-Build-Action"
+description: "Start Jenkins jobs with GitHub actions and parameters. It checks for queued jobs, started jobs and status of the jobs. It also reports back the job status"
+author: "Amit Sadafule"
+inputs:
+  JENKINS_URL:
+    description: "Jenkins URL"
+    required: true
+  JOB_NAME:
+    description: "Job on which build needs to be triggered "
+    required: true
+  JENKINS_JOB_DIRECTORY_PATH:
+    description: "Jenkins job directory path. The must end with `/`"
+    required: false
+    default: `/job/`
+  JENKINS_USER:
+    description: "Jenkins user name. Please check above note for user accesses"
+    required: true
+  JENKINS_USER_PASS:
+    description: 'Jenkins user password'
+    required: true
+  PARAMETERS:
+    description: 'String in json format containing all the parameters that are needed to run the job and are required for the pipeline. e.g. `{"tag":"12234234242","b":"xyz"}`'
+    required: true
+runs:
+  using: "docker"
+  image: "Dockerfile"
