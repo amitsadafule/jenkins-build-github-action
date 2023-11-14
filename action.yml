@@ -11,7 +11,7 @@ inputs:
   JENKINS_JOB_DIRECTORY_PATH:
     description: "Jenkins job directory path. The must end with `/`"
     required: false
-    default: `/job/`
+    default: '/job/'
   JENKINS_USER:
     description: "Jenkins user name. Please check above note for user accesses"
     required: true
