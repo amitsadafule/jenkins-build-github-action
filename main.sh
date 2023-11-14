@@ -40,7 +40,6 @@ function getJobUrl() {
 
 function getJobUrlWithLoop() {
 	curl_parameters=$(echo "${PARAMETERS}" | jq -r '. | to_entries | map("--data "+.key+"="+.value) | join(" ")')
-	curl -v -u "${USER_NAME_TOKEN}" -H "${JENKINS_CRUMB}" "${JENKINS_URL}${JENKINS_JOB_DIRECTORY_PATH}${JOB_NAME}/buildWithParameters" ${curl_parameters} --data verbosity=high
 	QUEUE_URL=$(curl -s -D - o /dev/null -u "${USER_NAME_TOKEN}" -H "${JENKINS_CRUMB}" "${JENKINS_URL}${JENKINS_JOB_DIRECTORY_PATH}${JOB_NAME}/buildWithParameters" ${curl_parameters} --data verbosity=high | awk '/^Location: / {print $2}' | tr -d '\r')
 
 	if [[ "${QUEUE_URL}" == '' ]]; then
