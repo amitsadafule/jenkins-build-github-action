@@ -1,6 +1,9 @@
 name: "Jenkins-Build-Action"
 description: "Start Jenkins jobs and notify status of the job"
 author: "Amit Sadafule"
+branding:
+  icon: 'check-circle'
+  color: 'white'
 inputs:
   JENKINS_URL:
     description: "Jenkins URL"
