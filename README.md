@@ -52,7 +52,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Trigger jenkins build job
-        uses: amitsadafule/jenkins-build-action@v1.0.0
+        uses: amitsadafule/jenkins-build-github-action@v1.0.1-alpha
         with:
           JENKINS_URL: "https://jenkins.abc.xyz"
           PARAMETERS: '{"tag":"12234234242","b":"xyz"}'
