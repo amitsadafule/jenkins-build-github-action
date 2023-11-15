@@ -2,13 +2,19 @@
 
 set -e
 
-JENKINS_JOB_DIRECTORY_PATH="${JENKINS_JOB_DIRECTORY_PATH:-'/job/'}"
+JENKINS_URL="${INPUT_JENKINS_URL}"
+JENKINS_USER="${INPUT_JENKINS_USER}"
+JENKINS_USER_PASS="${INPUT_JENKINS_USER_PASS}"
+JENKINS_JOB_DIRECTORY_PATH="${INPUT_JENKINS_JOB_DIRECTORY_PATH:-'/job/'}"
+JOB_NAME="${INPUT_JOB_NAME}"
+PARAMETERS="${INPUT_PARAMETERS}"
+
 USER_NAME_PASSWORD="${JENKINS_USER}":"${JENKINS_USER_PASS}"
 
 JENKINS_CRUMB=$(curl -u "${USER_NAME_PASSWORD}" -s --cookie-jar /tmp/cookies "${JENKINS_URL}"'/crumbIssuer/api/xml?xpath=concat(//crumbRequestField,":",//crumb)')
 echo "Fetched jenkins crumb"
 
-TOKEN_NAME="GlobalToken"
+TOKEN_NAME="jenkinsBuildGithubActionToken"
 TOKEN_API_RESPONSE=$(curl -u "${USER_NAME_PASSWORD}" -H "${JENKINS_CRUMB}" -s \
                     --cookie /tmp/cookies "${JENKINS_URL}/me/descriptorByName/jenkins.security.ApiTokenProperty/generateNewToken" \
                     --data "newTokenName=${TOKEN_NAME}")

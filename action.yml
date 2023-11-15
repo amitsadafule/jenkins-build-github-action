@@ -5,23 +5,23 @@ branding:
   icon: 'check-circle'
   color: 'white'
 inputs:
-  JENKINS_URL:
+  jenkins_url:
     description: "Jenkins URL"
     required: true
-  JOB_NAME:
+  job_name:
     description: "Job on which build needs to be triggered "
     required: true
-  JENKINS_JOB_DIRECTORY_PATH:
+  jenkins_job_directory_path:
     description: "Jenkins job directory path. The must end with `/`"
     required: false
     default: '/job/'
-  JENKINS_USER:
+  jenkins_user:
     description: "Jenkins user name. Please check above note for user accesses"
     required: true
-  JENKINS_USER_PASS:
+  jenkins_user_pass:
     description: 'Jenkins user password'
     required: true
-  PARAMETERS:
+  parameters:
     description: 'String in json format containing all the parameters that are needed to run the job and are required for the pipeline. e.g. `{"tag":"12234234242","b":"xyz"}`'
     required: true
 runs:
