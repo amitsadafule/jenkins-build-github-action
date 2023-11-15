@@ -66,12 +66,12 @@ jobs:
 
 | Input                        | Required | Description                                                                                                                                                    | Default |
 |------------------------------|----------|----------------------------------------------------------------------------------------------------------------------------------------------------------------|---------|
-| `JENKINS_URL`                | Yes      | Jenkins URL                                                                                                                                                    |         |
-| `JOB_NAME`                   | Yes      | Job on which build needs to be triggered                                                                                                                       |         |
-| `JENKINS_JOB_DIRECTORY_PATH` | No       | Jenkins job directory path. The must end with `/`                                                                                                              | `/job/` |
-| `JENKINS_USER`               | Yes      | Jenkins user name. Please check above note for user accesses                                                                                                   |         |
-| `JENKINS_USER_PASS`          | Yes      | Jenkins user password                                                                                                                                          |         |
-| `PARAMETERS`                 | Yes      | String in json format containing all the parameters that are needed to run the job and are required for the pipeline. e.g. `'{"tag":"12234234242","b":"xyz"}'` |         |
+| `jenkins_url`                | Yes      | Jenkins URL                                                                                                                                                    |         |
+| `job_name`                   | Yes      | Job on which build needs to be triggered                                                                                                                       |         |
+| `jenkins_job_directory_path` | No       | Jenkins job directory path. The must end with `/`                                                                                                              | `/job/` |
+| `jenkins_user`               | Yes      | Jenkins user name. Please check above note for user accesses                                                                                                   |         |
+| `jenkins_user_pass`          | Yes      | Jenkins user password                                                                                                                                          |         |
+| `parameters`                 | Yes      | String in json format containing all the parameters that are needed to run the job and are required for the pipeline. e.g. `'{"tag":"12234234242","b":"xyz"}'` |         |
 
 > [!NOTE]
 > During the action trigger, it tries to create a temporary token for the user in jenkins. It also deletes the token at the end.

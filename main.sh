@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -xe
+set -e
 
 JENKINS_URL="${INPUT_JENKINS_URL}"
 JENKINS_USER="${INPUT_JENKINS_USER}"
@@ -14,7 +14,7 @@ USER_NAME_PASSWORD="${JENKINS_USER}":"${JENKINS_USER_PASS}"
 JENKINS_CRUMB=$(curl -u "${USER_NAME_PASSWORD}" -s --cookie-jar /tmp/cookies "${JENKINS_URL}"'/crumbIssuer/api/xml?xpath=concat(//crumbRequestField,":",//crumb)')
 echo "Fetched jenkins crumb"
 
-TOKEN_NAME="GlobalToken"
+TOKEN_NAME="jenkinsBuildGithubActionToken"
 TOKEN_API_RESPONSE=$(curl -u "${USER_NAME_PASSWORD}" -H "${JENKINS_CRUMB}" -s \
                     --cookie /tmp/cookies "${JENKINS_URL}/me/descriptorByName/jenkins.security.ApiTokenProperty/generateNewToken" \
                     --data "newTokenName=${TOKEN_NAME}")
